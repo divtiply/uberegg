@@ -51,5 +51,5 @@ class bdist_uberegg(bdist_egg):
         # https://pip.pypa.io/en/latest/user_guide/#installing-from-local-packages
         return  subprocess.check_call([sys.executable, '-m', 'pip', 'download'] + ['--destination-directory', cache_dir, '-r', requirements]) and subprocess.check_call(
             [sys.executable, '-m', 'pip', 'install']
-            + ['--no-index', '--find-links=%s' % cache_dir,'-t', target, '-r', requirements]
+            + ['--no-index', '--find-links=%s' % cache_dir, '-U','-t', target, '-r', requirements]
         )
